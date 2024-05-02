@@ -55,14 +55,20 @@
                     <li><a href="teams">Jamoa</a></li>
                     <li><a href="blog">Yangiliklar</a></li>
                     <li>
-                        <a style="color: blue" href="Admin/dashboard">
+                        <a href="Admin/dashboard">
                             @if(!is_null(auth()->id()))
                             {{ auth()->user()->last_name.' '.auth()->user()->first_name }}
                             @else
                             Log In
                             @endif
                         </a>
+
                     </li>
+                    @guest
+                        <li>
+                            <a href="{{ route('register') }}">Register</a>
+                        </li>
+                    @endguest
                 </ul>
             </nav>
             <!-- .navbar -->

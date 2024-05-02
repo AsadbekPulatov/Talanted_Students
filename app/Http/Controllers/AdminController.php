@@ -59,8 +59,8 @@ class AdminController extends Controller
     public function AdminUsers()
     {
         $id=auth()->id();
-        $data=DB::select("select id,first_name,last_name,`position`,info_id,`user`,email,created_at,profile from users");
-        $sf=DB::select("select id,first_name,last_name,`position`,info_id,`user`,email,created_at,profile from users where id<>$id");
+        $data=User::where('position', '!=', 'student')->get();
+        $sf= User::where('position', '!=', 'student')->where('id', '!=', $id)->get();
         if (count($data)>0) {
             foreach ($data as $val) {
                 $us[$val->id] = $val;
@@ -179,10 +179,20 @@ class AdminController extends Controller
         return view('AdminPanel.News.index',["user"=>$user,"data"=>$data,'news'=>$news,'setting'=>$setting]);
     }
 
-    public function AdminStatutes()
+    public function AdminStatutes(Request $request)
     {
+        $search = $request['search'];
+        $date = $request['date'];
+
+        $statutes=Statutes::orderby('id', 'desc');
+        if (isset($search)){
+            $statutes=$statutes->where('name', 'like', "%$search%");
+        }
+        if (isset($date)){
+            $statutes=$statutes->where('date', $date);
+        }
         $data=User::find(auth()->id());
-        $statutes=DB::select("select * from statutes order by id desc LIMIT 10");
+        $statutes=$statutes->get();
         if(count($statutes)>0) {
             foreach ($statutes as $val) {
                 $st[$val->id] = $val;

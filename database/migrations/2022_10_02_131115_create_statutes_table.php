@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('statutes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->date('date')->default(now());
             $table->string('location');
             $table->timestamps();
         });

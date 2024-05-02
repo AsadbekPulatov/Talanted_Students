@@ -10,6 +10,7 @@ use App\Models\Statutes;
 use App\Models\User;
 use Hamcrest\Core\Set;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use function PHPUnit\Framework\isNull;
 
@@ -32,7 +33,8 @@ class HomeController extends Controller
     }
     public function Home()
     {
-        $choices=Choice::all();
+        $now = Carbon::now()->format('Y-m-d');
+        $choices=Choice::whereDate('deadline', '>', $now)->get();
         return view('Home.index',['data'=>$choices]);
     }
 

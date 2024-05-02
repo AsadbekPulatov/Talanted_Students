@@ -38,6 +38,7 @@ class StatutesController extends Controller
         $request->validate(
             [
                 'name' => ['required', 'string', 'max:255'],
+                'date' => ['required', 'date'],
                 'statute' => ['required', 'file'],
             ]
         );
@@ -53,6 +54,7 @@ class StatutesController extends Controller
             $filename = "statute" . time() . ".pdf";
             $file->move(public_path("/StatutesFile"), $filename);
             $data->name=$request->name;
+            $data->date=$request->date;
             $data->location=$filename;
             $data->save();
         }
@@ -94,6 +96,7 @@ class StatutesController extends Controller
             [
                 'id' => ['required'],
                 'name' => ['required', 'string', 'max:255'],
+                'date' => ['required', 'date'],
             ]
         );
         $user=auth()->user();
