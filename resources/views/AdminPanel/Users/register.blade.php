@@ -87,33 +87,6 @@
             </div>
         </div>
     </section>
-    <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
-
-
-    <footer class="">
-        <div class="container">
-            <div class="flex flex-wrap -mx-3">
-                <div class="w-8/12 max-w-full px-3 mx-auto mt-1 text-center flex-0">
-                    <p class="mb-0 text-slate-400">
-                        Copyright ©
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script>
-                        Created by
-                        <a href="https://t.me/sfarruhbek_7" class="font-semibold dark:text-white text-slate-700" target="_blank"> S.Farruhbek</a>.
-                    </p>
-                </div>
-            </div>
-
-            <div class="flex flex-wrap -mx-3">
-                <div class="flex-shrink-0 w-full max-w-full mx-auto mb-6 text-center lg:flex-0 lg:w-8/12">
-                    <a href="https://instagram.com/unusual_team_official" target="_blank" class="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12"> Unusual Team </a>
-                    <a href="https://t.me/unusual_team_official" target="_blank" class="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12"> About Us </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
 </main>
 </body>
 <script>

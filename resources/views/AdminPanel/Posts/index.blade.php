@@ -7,7 +7,7 @@
         width: 550px;
     }
 </style>
-   
+
     <div class="w-full px-6 py-6 mx-auto">
         <!-- table 1 -->
 
@@ -59,30 +59,20 @@
                 <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/2">
                     <div class="w-70 flex-auto p-4">
                             <div align="end">
-                                <div class="dropdown">
-                                    <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
-                                            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                                        </svg>
-                                    </span>
-                                    <div class="dropdown-content dark:bg-slate-850 bg-white">
-                                        <a href="{{route('Post.edit',$val->id)}}" style="color: #1aff00" class="dropdown-item">
-                                            <i class="fas fa-edit fa-sm fa-fw me-2 text-gray-400"></i>&nbsp
-                                            Tahrirlash!
-                                        </a>
-                                        <hr class="h-px mx-0 my-1 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent" />
-                                        <form method="POST" action="{{route('Post.destroy',$val->id)}}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button onclick="fireSweetAlert({{$val->id}})" style="color: red" type="button" class="dropdown-item" href="">
-                                                <i class="fas fa-trash fa-sm fa-fw me-2 text-gray-400"></i>&nbsp
-                                                Deleted!
-                                            </button>
-                                            <button id="button{{$val->id}}" type="submit" style="display: none" class="btn btn-danger m-6">
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
+                                <a href="{{route('Post.edit',$val->id)}}" style="color: #1aff00" class="dropdown-item">
+                                    <i class="fas fa-edit fa-sm fa-fw me-2 text-gray-400"></i>&nbsp
+                                    Tahrirlash
+                                </a>
+                                <form method="POST" action="{{route('Post.destroy',$val->id)}}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button onclick="fireSweetAlert({{$val->id}})" style="color: red" type="button" class="dropdown-item" href="">
+                                        <i class="fas fa-trash fa-sm fa-fw me-2 text-gray-400"></i>&nbsp
+                                        O'chirish
+                                    </button>
+                                    <button id="button{{$val->id}}" type="submit" style="display: none" class="btn btn-danger m-6">
+                                    </button>
+                                </form>
                             </div>
                             <div class="flex flex-row -mx-3 p-4">
                                 <h3 style="width: 650px" class="mt-4 dark:text-white">{{$val->title}}</h3>
@@ -104,32 +94,6 @@
             <h3 id="morebtn" style="color: blue"><button onclick="More(5)">More...</button></h3>
         </div>
         @endif
-        <footer class="pt-4">
-            <div class="w-full px-6 mx-auto">
-                <div class="flex flex-wrap items-center -mx-3 lg:justify-between">
-                    <div class="w-full max-w-full px-3 mt-0 mb-6 shrink-0 lg:mb-0 lg:w-1/2 lg:flex-none">
-                        <div class="text-sm leading-normal text-center text-slate-500 lg:text-left">
-                            ©
-                            <script>
-                                document.write(new Date().getFullYear() + ",");
-                            </script>
-                            Created by
-                            <a href="https://t.me/sfarruhbek_7" class="font-semibold dark:text-white text-slate-700" target="_blank">S.Farruhbek</a>.
-                        </div>
-                    </div>
-                    <div class="w-full max-w-full px-3 mt-0 shrink-0 lg:w-1/2 lg:flex-none">
-                        <ul class="flex flex-wrap justify-center pl-0 mb-0 list-none lg:justify-end">
-                            <li class="nav-item">
-                                <a href="https://instagram.com/unusual_team_official" class="block px-4 pt-0 pb-1 text-sm font-normal transition-colors ease-in-out text-slate-500" target="_blank">Unusual Team</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://t.me/unusual_team_official" class="block px-4 pt-0 pb-1 text-sm font-normal transition-colors ease-in-out text-slate-500" target="_blank">About Us</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
 
     </div>
 

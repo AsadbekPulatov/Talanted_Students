@@ -57,7 +57,7 @@
                 <li><a href="blog">Yangiliklar</a></li>
                 <li>@if(!is_null(auth()->id()))
                         <a href="/Admin/dashboard">
-                            Admin
+                            {{ auth()->user()->last_name.' '.auth()->user()->first_name }}
                         </a>
                     @else
                         <a style="color: blue" href="/Admin/dashboard">
@@ -373,33 +373,14 @@
                   <div class="col-lg-3 col-md-12 footer-contact text-justify text-md-start">
                       <h4 style="color: #0080ff">Contact the developer</h4>
                       <p style="color: #00ffd9">
-                          <strong>Phone:</strong> +998904314201<br>
-                          <strong>Email:</strong> satimbayevfarruhbek@gmail.com<br>
-                          <strong>Telegram:</strong> <a href="https://t.me/sfarruhbek_7" target="_blank">@sfarruhbek_7</a><br>
-                          <strong>Instagram:</strong> <a href="https://instagram.com/sfarruhbek_7" target="_blank">@sfarruhbek_7</a><br>
+                          <strong>Phone:</strong> +998934347734<br>
+                          <strong>Email:</strong> adizovamriddin@gmail.com<br>
+                          <strong>Telegram:</strong> <a href="https://t.me/Amir_A_B_97" target="_blank">@Amir_A_B_97</a><br>
                       </p>
-
                   </div>
-
               </div>
           </div>
       </div>
-
-      <div class="footer-legal" style="background-color: black">
-          <div class="container">
-              <div class="copyright" style="color: white">
-                  &copy; <strong><span>Unusual Team</span></strong>.
-              </div>
-              <div class="credits" style="color: white">
-                  <!-- All the links in the footer should remain intact. -->
-                  <!-- You can delete the links only if you purchased the pro version. -->
-                  <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                  <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nova-bootstrap-business-template/ -->
-                  Creator by <a href="https://t.me/sfarruhbek_7">S.Farruhbek</a>
-              </div>
-          </div>
-      </div>
-
   </footer>
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
