@@ -16,7 +16,8 @@ use Illuminate\Testing\Fluent\Concerns\Has;
 class UserController extends Controller
 {
     public function __construct() {
-        $this->middleware('admin')->except(['update', 'user_task']);
+        $this->middleware('admin')->except(['update', 'user_task', 'download_choice_users']);
+        $this->middleware('admin')->only('download_choice_users');
     }
     /**
      * Display a listing of the resource.
@@ -306,9 +307,9 @@ class UserController extends Controller
                     $data = new ChoiseUser();
                     $data->task_id = $request->task_id;
                     $data->user_id = $user;
-    
+
                     $filename = time().'.'.$file->getClientOriginalExtension();
-    
+
                     $file->move('tasks', $filename);
                     $data->file = $filename;
                     $data->save();
@@ -336,9 +337,9 @@ class UserController extends Controller
                 $new_students[$key]['data'][] = $item;
                 $new_students[$key]['count'] = count($students[$key]);
             }
-    
+
             usort($new_students, function($a, $b) {
-                return $b['count'] - $a['count']; 
+                return $b['count'] - $a['count'];
             });
 
             $data = $new_students;
@@ -371,7 +372,7 @@ class UserController extends Controller
         $task = ChoiseUser::findorfail($id);
         $file = $task->file;
         $filePath = public_path('tasks/'.$file);
-        
+
         // Check if the file exists
         if (file_exists($filePath)) {
             // Return the file for download
